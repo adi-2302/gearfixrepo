@@ -1,0 +1,14 @@
+<div class="container" *ngIf="workshop">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ workshop.name }}</mat-card-title>
+      <mat-card-subtitle>{{ workshop.location }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>Services Offered:</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let service of workshop.services">{{ service }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

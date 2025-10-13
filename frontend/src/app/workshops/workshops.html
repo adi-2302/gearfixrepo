@@ -1,0 +1,11 @@
+<div class="container">
+  <mat-card *ngFor="let workshop of workshops">
+    <mat-card-header>
+      <mat-card-title>{{ workshop.name }}</mat-card-title>
+      <mat-card-subtitle>{{ workshop.location }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <a mat-button [routerLink]="['/workshops', workshop.id]">View Details</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
