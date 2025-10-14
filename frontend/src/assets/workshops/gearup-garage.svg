@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f0f0f0"/>
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#3498db"/>
+  <circle cx="200" cy="150" r="70" fill="#ecf0f1"/>
+  <path d="M200,150 L200,100 M200,150 L240,170 M200,150 L170,190" stroke="#2c3e50" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="200" cy="150" r="10" fill="#2c3e50"/>
+  <path d="M130,120 L150,120 L150,180 L130,180 Z" fill="#e74c3c"/>
+  <path d="M250,120 L270,120 L270,180 L250,180 Z" fill="#e74c3c"/>
+  <text x="200" y="240" font-family="Arial" font-size="24" text-anchor="middle" fill="#ffffff">GearUp Garage</text>
+  <circle cx="130" cy="200" r="15" fill="#2c3e50"/>
+  <circle cx="270" cy="200" r="15" fill="#2c3e50"/>
+</svg>

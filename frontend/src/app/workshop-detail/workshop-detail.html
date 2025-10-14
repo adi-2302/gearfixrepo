@@ -1,14 +1,49 @@
 <div class="container" *ngIf="workshop">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ workshop.name }}</mat-card-title>
-      <mat-card-subtitle>{{ workshop.location }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <h3>Services Offered:</h3>
-      <mat-list>
-        <mat-list-item *ngFor="let service of workshop.services">{{ service }}</mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+  <div class="workshop-detail-card">
+    <div class="workshop-header">
+      <a routerLink="/workshops" class="back-button">← Back to Workshops</a>
+      <h1 class="workshop-name">{{workshop.name}}</h1>
+      <div class="workshop-location"><span class="location-icon"></span>{{workshop.location}}</div>
+    </div>
+    
+    <div class="workshop-content">
+      <div class="workshop-image-container">
+        <img [src]="workshop.image" [alt]="workshop.name" class="workshop-image">
+      </div>
+      
+      <div class="workshop-info">
+        <div class="workshop-description">
+          <h2>About</h2>
+          <p>{{workshop.description}}</p>
+        </div>
+        
+        <div class="workshop-contact">
+          <h2>Contact Information</h2>
+          <p><strong>Address:</strong> {{workshop.address}}</p>
+          <p><strong>Phone:</strong> {{workshop.phone}}</p>
+          <p><strong>Hours:</strong> {{workshop.hours}}</p>
+        </div>
+        
+        <div class="workshop-services">
+          <h2>Services Offered</h2>
+          <ul class="services-list">
+            <li *ngFor="let service of workshop.services" class="service-item">
+              <span class="service-icon">✓</span> {{service}}
+            </li>
+          </ul>
+        </div>
+        
+        <div class="action-buttons">
+
+          <button class="btn-secondary">Contact Workshop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!workshop">
+  <h2>Workshop not found</h2>
+  <p>The workshop you're looking for doesn't exist or has been removed.</p>
+  <a routerLink="/workshops" class="btn-primary">Return to Workshops</a>
 </div>

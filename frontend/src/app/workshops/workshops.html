@@ -1,11 +1,25 @@
 <div class="container">
-  <mat-card *ngFor="let workshop of workshops">
-    <mat-card-header>
-      <mat-card-title>{{ workshop.name }}</mat-card-title>
-      <mat-card-subtitle>{{ workshop.location }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-actions>
-      <a mat-button [routerLink]="['/workshops', workshop.id]">View Details</a>
-    </mat-card-actions>
-  </mat-card>
+  <h1 class="page-title">Automotive Workshops</h1>
+  <p class="page-subtitle">Find the best automotive service centers for your vehicle</p>
+  
+  <div class="card-grid">
+    <div class="card" *ngFor="let workshop of workshops">
+      <img [src]="workshop.image" [alt]="workshop.name" class="card-img">
+      <div class="card-content">
+        <h2 class="workshop-name">{{ workshop.name }}</h2>
+        <p class="workshop-location">
+          <i class="location-icon"></i> {{ workshop.location }}
+        </p>
+        <p class="workshop-description">{{ workshop.description }}</p>
+        <div class="services-preview">
+          <h3>Services:</h3>
+          <div class="service-tags">
+            <span class="service-tag" *ngFor="let service of workshop.services.slice(0, 3)">{{ service }}</span>
+            <span *ngIf="workshop.services.length > 3" class="more-services">+{{ workshop.services.length - 3 }} more</span>
+          </div>
+        </div>
+        <button class="view-details-btn" (click)="viewWorkshopDetails(workshop.id)">View Details</button>
+      </div>
+    </div>
+  </div>
 </div>

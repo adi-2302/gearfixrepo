@@ -1,0 +1,123 @@
+.workshop-detail-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl);
+}
+
+.workshop-header {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid #eee;
+}
+
+.back-button {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.workshop-name {
+  color: var(--primary-dark);
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: 2rem;
+}
+
+.workshop-location {
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.location-icon::before {
+  content: "📍";
+  margin-right: var(--spacing-xs);
+}
+
+.workshop-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .workshop-content {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.workshop-image-container {
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.workshop-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.workshop-info h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.workshop-description, 
+.workshop-contact, 
+.workshop-services {
+  margin-bottom: var(--spacing-lg);
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-item {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-icon {
+  color: var(--primary-color);
+  margin-right: var(--spacing-sm);
+  font-weight: bold;
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.not-found {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.not-found h2 {
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.not-found p {
+  margin-bottom: var(--spacing-lg);
+  color: #666;
+}

@@ -1,0 +1,82 @@
+.page-title {
+  color: var(--primary-dark);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.page-subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.workshop-name {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.5rem;
+}
+
+.workshop-location {
+  color: #666;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.location-icon::before {
+  content: "📍";
+  margin-right: var(--spacing-xs);
+}
+
+.workshop-description {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+}
+
+.services-preview {
+  margin-bottom: var(--spacing-md);
+}
+
+.services-preview h3 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1rem;
+  color: #555;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.service-tag {
+  background-color: var(--primary-light);
+  color: var(--text-on-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.more-services {
+  color: #666;
+  font-size: 0.8rem;
+  padding: var(--spacing-xs);
+}
+
+.view-details-btn {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.view-details-btn:hover {
+  background-color: var(--primary-dark);
+}

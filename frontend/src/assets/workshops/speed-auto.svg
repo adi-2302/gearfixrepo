@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f0f0f0"/>
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#e74c3c"/>
+  <circle cx="200" cy="150" r="70" fill="#ecf0f1"/>
+  <path d="M200 100 L200 150 L250 150" stroke="#2c3e50" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="200" cy="150" r="10" fill="#2c3e50"/>
+  <text x="200" y="240" font-family="Arial" font-size="24" text-anchor="middle" fill="#ffffff">Speed Auto Care</text>
+  <path d="M50 280 L350 280" stroke="#c0392b" stroke-width="10"/>
+  <path d="M70 260 L90 260 L100 240 L110 260 L130 260" stroke="#ffffff" stroke-width="3" fill="none"/>
+  <path d="M270 260 L290 260 L300 240 L310 260 L330 260" stroke="#ffffff" stroke-width="3" fill="none"/>
+</svg>

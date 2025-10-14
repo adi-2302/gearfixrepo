@@ -1,26 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
+
+// Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/gearfix', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
+// Using environment variable or default to localhost with gearfixdata database
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/gearfixdata';
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected to gearfixdata'))
     .catch(err => console.log(err));
-
-// User schema
-const UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-});
-
-const User = mongoose.model('User', UserSchema);
 
 // Static workshop data
 const workshops = [
@@ -28,60 +25,42 @@ const workshops = [
         "id": 1,
         "name": "Speed Auto Care",
         "location": "Chennai",
-        "services": ["Oil Change", "Brake Repair", "Tire Replacement"]
+        "services": ["Oil Change", "Brake Repair", "Tire Replacement", "Engine Diagnostics", "Suspension Work"],
+        "image": "image1.jpg",
+        "description": "Premier auto service center specializing in quick maintenance and repairs.",
+        "address": "123 Auto Street, Chennai, Tamil Nadu",
+        "phone": "+91 98765 43210",
+        "hours": "Mon-Sat: 9:00 AM - 6:00 PM"
     },
     {
         "id": 2,
         "name": "GearUp Garage",
         "location": "Bangalore",
-        "services": ["Engine Tuning", "Battery Replacement", "General Checkup"]
+        "services": ["Engine Tuning", "Battery Replacement", "General Checkup", "Performance Upgrades", "Electrical System Repair"],
+        "image": "image2.jpg",
+        "description": "Expert mechanics providing comprehensive vehicle maintenance and performance tuning.",
+        "address": "456 Mechanic Road, Bangalore, Karnataka",
+        "phone": "+91 87654 32109",
+        "hours": "Mon-Sat: 8:30 AM - 7:00 PM"
+    },
+    {
+        "id": 3,
+        "name": "Precision Motors",
+        "location": "Mumbai",
+        "services": ["Wheel Alignment", "AC Service", "Electrical Repairs", "Computer Diagnostics", "Transmission Service"],
+        "image": "image3.jpg",
+        "description": "Specialized workshop focusing on precision repairs and advanced diagnostics.",
+        "address": "789 Service Lane, Mumbai, Maharashtra",
+        "phone": "+91 76543 21098",
+        "hours": "Mon-Sat: 9:00 AM - 8:00 PM, Sun: 10:00 AM - 2:00 PM"
     }
 ];
 
-// Routes
-app.post('/api/register', async (req, res) => {
-    const { name, email, password } = req.body;
-    try {
-        let user = await User.findOne({ email });
-        if (user) {
-            return res.status(400).json({ msg: 'User already exists' });
-        }
-        user = new User({ name, email, password });
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
-        await user.save();
-        const payload = { user: { id: user.id } };
-        jwt.sign(payload, 'secret', { expiresIn: 3600 }, (err, token) => {
-            if (err) throw err;
-            res.json({ token });
-        });
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
-    }
-});
+// Define routes
+const authRoutes = require('./routes/auth');
 
-app.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        let user = await User.findOne({ email });
-        if (!user) {
-            return res.status(400).json({ msg: 'Invalid credentials' });
-        }
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ msg: 'Invalid credentials' });
-        }
-        const payload = { user: { id: user.id } };
-        jwt.sign(payload, 'secret', { expiresIn: 3600 }, (err, token) => {
-            if (err) throw err;
-            res.json({ token });
-        });
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
-    }
-});
+// Use routes
+app.use('/api/auth', authRoutes);
 
 app.get('/api/workshops', (req, res) => {
     res.json(workshops);
@@ -95,5 +74,6 @@ app.get('/api/workshops/:id', (req, res) => {
     res.json(workshop);
 });
 
+// Server port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
