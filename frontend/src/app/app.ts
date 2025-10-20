@@ -5,9 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatButtonModule, RouterLink],
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatButtonModule, RouterLink, MatDialogModule, MatSnackBarModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

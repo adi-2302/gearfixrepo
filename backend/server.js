@@ -57,7 +57,9 @@ const workshops = [
 
 // ✅ Routes
 const authRoutes = require('./routes/auth');
+const bookingRoutes = require('./routes/bookings');
 app.use('/api/auth', authRoutes);
+app.use('/api', bookingRoutes);
 
 // ✅ Workshop Routes
 app.get('/api/workshops', (req, res) => {

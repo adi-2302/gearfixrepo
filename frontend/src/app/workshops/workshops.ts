@@ -2,46 +2,46 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-workshops',
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  standalone: true,
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
   templateUrl: './workshops.html',
   styleUrls: ['./workshops.css']
 })
-export class WorkshopsComponent implements OnInit {
+export class Workshops implements OnInit {
   workshops = [
     {
       id: 1,
-      name: 'Speed Auto Care',
+      name: 'SmartFix Mobile Care',
       location: 'Chennai',
-      services: ['Oil Change', 'Brake Repair', 'Tire Replacement'],
+      services: ['Screen Replacement', 'Battery Replacement', 'Software Update'],
       image: 'assets/workshops/image1.jpeg',
-      description: 'Premier auto service center specializing in quick maintenance and repairs.'
+      description: 'Trusted mobile service center offering fast and reliable phone repairs for all major brands.'
     },
     {
       id: 2,
-      name: 'GearUp Garage',
-      location: 'Bangalore',
-      services: ['Engine Tuning', 'Battery Replacement', 'General Checkup'],
+      name: 'MobileCare Solutions',
+      location: 'Hyderabad',
+      services: ['Charging Port Repair', 'Speaker & Mic Repair', 'Back Panel Replacement'],
       image: 'assets/workshops/image2.jpeg',
-      description: 'Expert mechanics providing comprehensive vehicle maintenance and performance tuning.'
+      description: 'Expert mobile technicians providing quick and affordable repair services for smartphones and tablets.'
     },
     {
       id: 3,
-      name: 'Precision Motors',
-      location: 'Mumbai',
-      services: ['Wheel Alignment', 'AC Service', 'Electrical Repairs'],
+      name: 'PhoneRevive Center',
+      location: 'Bangalore',
+      services: ['Display Repair', 'Battery Replacement', 'Data Recovery'],
       image: 'assets/workshops/image3.jpeg',
-      description: 'Specialized workshop focusing on precision repairs and advanced diagnostics.'
+      description: 'Professional service center offering reliable and fast solutions for all mobile phone issues.'
     }
   ];
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   viewWorkshopDetails(id: number): void {
     this.router.navigate(['/workshops', id]);

@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Book an Appointment</h2>
+<mat-dialog-content>
+  <form [formGroup]="bookingForm">
+    <mat-form-field>
+      <mat-label>Customer Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contact Number</mat-label>
+      <input matInput formControlName="contact">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mobile Brand & Model</mat-label>
+      <input matInput formControlName="mobileModel">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Service Type</mat-label>
+      <mat-select formControlName="serviceType">
+        <mat-option *ngFor="let service of data.workshop.services" [value]="service">{{ service }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Preferred Date & Time</mat-label>
+      <input matInput type="datetime-local" formControlName="preferredDateTime">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Problem Description / Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [disabled]="!bookingForm.valid">Book</button>
+</mat-dialog-actions>

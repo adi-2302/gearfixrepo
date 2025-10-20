@@ -17,4 +17,8 @@ export class WorkshopService {
   getWorkshopById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/workshops/${id}`);
   }
+
+  bookAppointment(bookingData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/bookings`, bookingData);
+  }
 }

@@ -1,7 +1,7 @@
 <div class="container" *ngIf="workshop">
   <div class="workshop-detail-card">
     <div class="workshop-header">
-      <a routerLink="/workshops" class="back-button">← Back to Workshops</a>
+      <button (click)="goBack()" class="back-button">← Back to Workshops</button>
       <h1 class="workshop-name">{{workshop.name}}</h1>
       <div class="workshop-location"><span class="location-icon"></span>{{workshop.location}}</div>
     </div>
@@ -34,7 +34,7 @@
         </div>
         
         <div class="action-buttons">
-
+          <button class="btn-primary" (click)="openBookingDialog()">Book Appointment</button>
           <button class="btn-secondary">Contact Workshop</button>
         </div>
       </div>
