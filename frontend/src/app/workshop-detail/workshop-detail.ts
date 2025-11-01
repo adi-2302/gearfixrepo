@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookingComponent } from '../booking/booking';
+import { ContactComponent } from '../contact/contact';
 import { WorkshopService } from '../services/workshop.service';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -55,5 +56,18 @@ export class WorkshopDetail implements OnInit {
         });
       }
     });
+  }
+
+  contactWorkshop(): void {
+    if (this.workshop) {
+      this.dialog.open(ContactComponent, {
+        width: '400px',
+        data: { workshop: this.workshop }
+      });
+    } else {
+      this.snackBar.open('Workshop details not available.', 'Close', {
+        duration: 3000
+      });
+    }
   }
 }

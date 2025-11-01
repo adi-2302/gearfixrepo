@@ -29,7 +29,8 @@ const workshops = [
     description: 'Trusted mobile service center offering fast and reliable phone repairs for all major brands.',
     address: '45 Tech Avenue, Chennai, Tamil Nadu',
     phone: '+91 98765 43210',
-    hours: 'Mon-Sat: 10:00 AM - 7:00 PM'
+    hours: 'Mon-Sat: 10:00 AM - 7:00 PM',
+    email: 'info@smartfix.com'
   },
   {
     id: 2,
@@ -40,7 +41,8 @@ const workshops = [
     description: 'Expert mobile technicians providing quick and affordable repair services for smartphones and tablets.',
     address: '22 Tech Park Road, Hyderabad, Telangana',
     phone: '+91 91234 56789',
-    hours: 'Mon-Sat: 10:00 AM - 8:00 PM'
+    hours: 'Mon-Sat: 10:00 AM - 8:00 PM',
+    email: 'info@mobilecare.com'
   },
   {
     id: 3,
@@ -51,7 +53,8 @@ const workshops = [
     description: 'Professional service center offering reliable and fast solutions for all mobile phone issues.',
     address: '78 Mobile Plaza, Bangalore, Karnataka',
     phone: '+91 99887 66554',
-    hours: 'Mon-Sun: 9:30 AM - 8:00 PM'
+    hours: 'Mon-Sun: 9:30 AM - 8:00 PM',
+    email: 'info@phonerevive.com'
   }
 ];
 

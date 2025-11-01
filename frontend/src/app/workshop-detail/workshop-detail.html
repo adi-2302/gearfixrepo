@@ -21,6 +21,7 @@
           <h2>Contact Information</h2>
           <p><strong>Address:</strong> {{workshop.address}}</p>
           <p><strong>Phone:</strong> {{workshop.phone}}</p>
+          <p><strong>Email:</strong> {{workshop.email}}</p>
           <p><strong>Hours:</strong> {{workshop.hours}}</p>
         </div>
         
@@ -35,7 +36,7 @@
         
         <div class="action-buttons">
           <button class="btn-primary" (click)="openBookingDialog()">Book Appointment</button>
-          <button class="btn-secondary">Contact Workshop</button>
+          <button class="btn-secondary" (click)="contactWorkshop()">Contact Workshop</button>
         </div>
       </div>
     </div>

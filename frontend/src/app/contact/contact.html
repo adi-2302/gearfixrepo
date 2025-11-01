@@ -1,0 +1,11 @@
+<div class="contact-container">
+  <h2 mat-dialog-title>Contact Information</h2>
+  <mat-dialog-content>
+    <p><strong>Workshop:</strong> {{ data.workshop.name }}</p>
+    <p><strong>Phone:</strong> {{ data.workshop.phone }}</p>
+    <p><strong>Email:</strong> {{ data.workshop.email }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+  </mat-dialog-actions>
+</div>
